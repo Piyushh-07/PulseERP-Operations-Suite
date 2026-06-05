@@ -1,0 +1,256 @@
+﻿<app-widgets-dropdown />
+
+<!-- Workforce Analytics Main Chart -->
+<c-card class="my-4 shadow-sm">
+  <c-card-body>
+    <c-row>
+      <c-col sm="5">
+        <h4 class="card-title mb-0" id="workforce-analytics">Workforce Analytics</h4>
+        <div class="small text-body-secondary">Q2 2026 Overview</div>
+      </c-col>
+      <c-col class="d-none d-md-block" sm="7">
+        <button cButton class="float-end" color="primary" aria-label="Download report">
+          <svg cIcon name="cilCloudDownload"></svg>
+        </button>
+        <form [formGroup]="trafficRadioGroup">
+          <c-button-group class="float-end me-3" role="group">
+            <input
+              class="btn-check"
+              formControlName="trafficRadio"
+              type="radio"
+              value="Day"
+              id="dayRadio"
+            />
+            <label
+              (click)="setTrafficPeriod('Day')"
+              cButton
+              cFormCheckLabel
+              color="secondary"
+              variant="outline"
+              for="dayRadio"
+            >
+              Day
+            </label>
+            <input
+              class="btn-check"
+              formControlName="trafficRadio"
+              type="radio"
+              value="Month"
+              id="radioMonth"
+            />
+            <label
+              (click)="setTrafficPeriod('Month')"
+              cButton
+              cFormCheckLabel
+              color="secondary"
+              variant="outline"
+              for="radioMonth"
+            >
+              Month
+            </label>
+            <input
+              class="btn-check"
+              formControlName="trafficRadio"
+              type="radio"
+              value="Year"
+              id="radioYear"
+            />
+            <label
+              (click)="setTrafficPeriod('Year')"
+              cButton
+              cFormCheckLabel
+              color="secondary"
+              variant="outline"
+              for="radioYear"
+            >
+              Year
+            </label>
+          </c-button-group>
+        </form>
+      </c-col>
+    </c-row>
+  </c-card-body>
+  <c-card-body>
+    <c-chart
+      #mainChartRef
+      [data]="mainChart.data"
+      [height]="300"
+      [options]="mainChart.options"
+      [type]="mainChart.type"
+    ></c-chart>
+  </c-card-body>
+  <c-card-footer>
+    <c-row class="row-cols-1 row-cols-lg-4 mb-2 text-center" cGutter>
+      <c-col>
+        <div class="small text-body-secondary">Employees Present</div>
+        <div class="fw-semibold">1,248 <c-badge color="success" class="ms-1">94%</c-badge></div>
+        <c-progress class="progress-white progress-thin mt-2" [value]="94"></c-progress>
+      </c-col>
+      <c-col>
+        <div class="small text-body-secondary">Active Workforce</div>
+        <div class="fw-semibold">1,120 <c-badge color="info" class="ms-1">85%</c-badge></div>
+        <c-progress class="progress-white progress-thin mt-2" [value]="85"></c-progress>
+      </c-col>
+      <c-col>
+        <div class="small text-body-secondary">Attendance Logs</div>
+        <div class="fw-semibold">2,445 <c-badge color="warning" class="ms-1">96%</c-badge></div>
+        <c-progress class="progress-white progress-thin mt-2" [value]="96" color="warning"></c-progress>
+      </c-col>
+      <c-col>
+        <div class="small text-body-secondary">New Joinees</div>
+        <div class="fw-semibold">23 <c-badge color="danger" class="ms-1">18%</c-badge></div>
+        <c-progress class="progress-white progress-thin mt-2" [value]="18" color="danger"></c-progress>
+      </c-col>
+    </c-row>
+  </c-card-footer>
+</c-card>
+
+<!-- Operations & Workforce Insights -->
+<c-card class="mb-4 shadow-sm">
+  <c-card-header class="fw-semibold">
+    Operations & Workforce Insights
+  </c-card-header>
+  <c-card-body>
+    <c-row [cGutter]="{ xs: 4 }">
+      <!-- Weekly Attendance Breakdown -->
+      <c-col xs="12" md="6">
+        <h5 class="small text-body-secondary mb-3">Weekly Attendance Breakdown</h5>
+        <div class="small mb-3">
+          <c-row [cGutter]="{ xs: 4 }" class="row-cols-4">
+            <c-col>
+              <div class="small text-body-secondary text-center">Monday</div>
+              <div class="fw-semibold text-center">98%</div>
+              <c-progress class="progress-white progress-thin mt-1" [value]="98"></c-progress>
+            </c-col>
+            <c-col>
+              <div class="small text-body-secondary text-center">Tuesday</div>
+              <div class="fw-semibold text-center">97%</div>
+              <c-progress class="progress-white progress-thin mt-1" [value]="97"></c-progress>
+            </c-col>
+            <c-col>
+              <div class="small text-body-secondary text-center">Wednesday</div>
+              <div class="fw-semibold text-center">99%</div>
+              <c-progress class="progress-white progress-thin mt-1" [value]="99"></c-progress>
+            </c-col>
+            <c-col>
+              <div class="small text-body-secondary text-center">Thursday</div>
+              <div class="fw-semibold text-center">96%</div>
+              <c-progress class="progress-white progress-thin mt-1" [value]="96"></c-progress>
+            </c-col>
+            <c-col>
+              <div class="small text-body-secondary text-center">Friday</div>
+              <div class="fw-semibold text-center">95%</div>
+              <c-progress class="progress-white progress-thin mt-1" [value]="95"></c-progress>
+            </c-col>
+            <c-col>
+              <div class="small text-body-secondary text-center">Saturday</div>
+              <div class="fw-semibold text-center">45%</div>
+              <c-progress class="progress-white progress-thin mt-1" [value]="45" color="warning"></c-progress>
+            </c-col>
+            <c-col>
+              <div class="small text-body-secondary text-center">Sunday</div>
+              <div class="fw-semibold text-center">5%</div>
+              <c-progress class="progress-white progress-thin mt-1" [value]="5" color="danger"></c-progress>
+            </c-col>
+          </c-row>
+        </div>
+      </c-col>
+
+      <!-- Department Distribution -->
+      <c-col xs="12" md="6">
+        <h5 class="small text-body-secondary mb-3">Department Distribution</h5>
+        <div class="small">
+          <div class="d-flex justify-content-between mb-3">
+            <span>Finance Department</span>
+            <span class="fw-semibold">142 (11%)</span>
+          </div>
+          <c-progress class="progress-white progress-thin mb-3" [value]="11"></c-progress>
+
+          <div class="d-flex justify-content-between mb-3">
+            <span>HR Department</span>
+            <span class="fw-semibold">89 (7%)</span>
+          </div>
+          <c-progress class="progress-white progress-thin mb-3" [value]="7" color="info"></c-progress>
+
+          <div class="d-flex justify-content-between mb-3">
+            <span>Engineering Department</span>
+            <span class="fw-semibold">378 (30%)</span>
+          </div>
+          <c-progress class="progress-white progress-thin mb-3" [value]="30" color="success"></c-progress>
+
+          <div class="d-flex justify-content-between mb-3">
+            <span>Operations Department</span>
+            <span class="fw-semibold">289 (23%)</span>
+          </div>
+          <c-progress class="progress-white progress-thin mb-3" [value]="23" color="warning"></c-progress>
+
+          <div class="d-flex justify-content-between">
+            <span>Other Departments</span>
+            <span class="fw-semibold">414 (29%)</span>
+          </div>
+          <c-progress class="progress-white progress-thin" [value]="29" color="danger"></c-progress>
+        </div>
+      </c-col>
+
+      <!-- On-Site vs Remote Split -->
+      <c-col xs="12" class="mt-4">
+        <h5 class="small text-body-secondary mb-3">Work Location Distribution</h5>
+        <c-row [cGutter]="{ xs: 4 }">
+          <c-col xs="6" sm="4">
+            <div class="small text-body-secondary">On-Site Employees</div>
+            <div class="fw-semibold">847 (68%)</div>
+            <c-progress class="progress-white progress-thin mt-2" [value]="68"></c-progress>
+          </c-col>
+          <c-col xs="6" sm="4">
+            <div class="small text-body-secondary">Remote Employees</div>
+            <div class="fw-semibold">245 (20%)</div>
+            <c-progress class="progress-white progress-thin mt-2" [value]="20" color="info"></c-progress>
+          </c-col>
+          <c-col xs="6" sm="4">
+            <div class="small text-body-secondary">Hybrid Employees</div>
+            <div class="fw-semibold">120 (10%)</div>
+            <c-progress class="progress-white progress-thin mt-2" [value]="10" color="success"></c-progress>
+          </c-col>
+        </c-row>
+      </c-col>
+    </c-row>
+  </c-card-body>
+</c-card>
+
+<!-- Active Employees Table -->
+<c-card class="shadow-sm">
+  <c-card-header class="d-flex justify-content-between align-items-center fw-semibold">
+    <span>Active Employees</span>
+    <a routerLink="/employees" class="small">View All →</a>
+  </c-card-header>
+  <c-card-body>
+    <table cTable hover responsive>
+      <thead>
+        <tr>
+          <th scope="col">Employee</th>
+          <th scope="col">Department</th>
+          <th scope="col">Status</th>
+          <th scope="col">Attendance</th>
+          <th scope="col">Activity</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users" class="border-bottom">
+          <td class="fw-semibold">
+            <c-avatar [src]="user.avatar" class="me-2"></c-avatar>
+            {{ user.name }}
+          </td>
+          <td class="text-body-secondary">{{ user.registered }}</td>
+          <td>
+            <c-badge [color]="user.color">{{ user.state }}</c-badge>
+          </td>
+          <td>
+            <div class="small">{{ user.usage }}%</div>
+            <c-progress class="progress-white progress-thin" [value]="user.usage" [color]="user.color"></c-progress>
+          </td>
+          <td class="text-body-secondary small">{{ user.activity }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </c-card-body>
+</c-card>

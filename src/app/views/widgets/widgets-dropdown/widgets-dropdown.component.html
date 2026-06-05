@@ -1,0 +1,123 @@
+<c-row class="g-4">
+  <c-col sm="6" xl="3">
+    <c-widget-stat-a
+      color="primary"
+      [title]="'Employees'"
+    >
+      <ng-template cTemplateId="widgetValueTemplate" ngPreserveWhitespaces>
+        1.248K
+        <span class="fw-normal" style="font-size: 12px;">
+          (+4.8% <svg cIcon name="cilArrowTop" size="sm"></svg>)
+        </span>
+      </ng-template>
+      <ng-template cTemplateId="widgetActionTemplate">
+        <c-dropdown alignment="end" variant="btn-group">
+          <button [caret]="false" cButton cDropdownToggle class="p-0 text-white" color="transparent" aria-label="Open dropdown">
+            <svg cIcon name="cilOptions"></svg>
+          </button>
+          <ul cDropdownMenu>
+            <li><a [routerLink]="[]" cDropdownItem>Action</a></li>
+            <li><a [routerLink]="[]" cDropdownItem>Another action</a></li>
+            <li><a [routerLink]="[]" cDropdownItem>Something else here</a></li>
+            <li>
+              <hr cDropdownDivider>
+            </li>
+            <li>
+              <button cDropdownItem>Separated link</button>
+            </li>
+          </ul>
+        </c-dropdown>
+      </ng-template>
+      <ng-template cTemplateId="widgetChartTemplate">
+        <c-chart [data]="data[0]" [options]="options[0]" class="mt-3 mx-3" height="70" [type]="'line'" />
+      </ng-template>
+    </c-widget-stat-a>
+  </c-col>
+  <c-col sm="6" xl="3">
+    <c-widget-stat-a
+      [title]="'Active Tasks'"
+      color="info"
+    >
+      <ng-template cTemplateId="widgetValueTemplate" ngPreserveWhitespaces>
+        4.720
+        <span class="fw-normal" style="font-size: 12px;">
+          (+12.6%<svg cIcon name="cilArrowTop" size="sm"></svg>)
+        </span>
+      </ng-template>
+      <ng-template cTemplateId="widgetActionTemplate">
+        <c-dropdown alignment="end" variant="btn-group">
+          <button [caret]="false" cButton cDropdownToggle class="p-0 text-white" color="transparent" aria-label="Open dropdown">
+            <svg cIcon name="cilOptions"></svg>
+          </button>
+          <ul cDropdownMenu>
+            <li><a [routerLink]="[]" cDropdownItem>Action</a></li>
+            <li><a [routerLink]="[]" cDropdownItem>Another action</a></li>
+            <li><a [routerLink]="[]" cDropdownItem>Something else here</a></li>
+            <li><a [disabled]="true" [routerLink]="[]" cDropdownItem>Disabled</a></li>
+          </ul>
+        </c-dropdown>
+      </ng-template>
+      <ng-template cTemplateId="widgetChartTemplate">
+        <c-chart [data]="data[1]" [options]="options[1]" class="mt-3 mx-3" height="70" type="line" />
+      </ng-template>
+    </c-widget-stat-a>
+  </c-col>
+  <c-col sm="6" xl="3">
+    <c-widget-stat-a
+      [title]="'Attendance Rate'"
+      color="warning"
+    >
+      <ng-template cTemplateId="widgetValueTemplate" ngPreserveWhitespaces>
+        96.4%
+        <span class="fw-normal" style="font-size: 12px;">
+          (+2.1% <svg cIcon name="cilArrowTop" size="sm"></svg>)
+        </span>
+      </ng-template>
+      <ng-template cTemplateId="widgetActionTemplate">
+        <c-dropdown alignment="end" variant="btn-group">
+          <button [caret]="false" cButton cDropdownToggle class="p-0 text-white" color="transparent" aria-label="Open dropdown">
+            <svg cIcon name="cilOptions"></svg>
+          </button>
+          <ul cDropdownMenu>
+            <li><a [routerLink]="[]" cDropdownItem>Action</a></li>
+            <li><a [routerLink]="[]" cDropdownItem>Another action</a></li>
+            <li><a [routerLink]="[]" cDropdownItem>Something else here</a></li>
+            <li><a [disabled]="true" [routerLink]="[]" cDropdownItem>Disabled</a></li>
+          </ul>
+        </c-dropdown>
+      </ng-template>
+      <ng-template cTemplateId="widgetChartTemplate">
+        <c-chart [data]="data[2]" [options]="options[2]" class="mt-3" height="70" type="line" />
+      </ng-template>
+    </c-widget-stat-a>
+  </c-col>
+  <c-col sm="6" xl="3">
+    <c-widget-stat-a
+      [title]="'Departments'"
+      color="danger"
+    >
+      <ng-template cTemplateId="widgetValueTemplate" ngPreserveWhitespaces>
+        <span>23 Departments</span>
+        <span class="fw-normal" style="font-size: 12px;">
+          (+1 this month)
+        </span>
+      </ng-template>
+      <ng-template cTemplateId="widgetActionTemplate">
+        <c-dropdown alignment="end" variant="btn-group">
+          <button [caret]="false" cButton cDropdownToggle class="p-0 text-white" color="transparent" aria-label="Open dropdown">
+            <svg cIcon name="cilOptions"></svg>
+          </button>
+          <ul cDropdownMenu>
+            <li><a [routerLink]="[]" cDropdownItem>Action</a></li>
+            <li><a [routerLink]="[]" cDropdownItem>Another action</a></li>
+            <li><a [routerLink]="[]" cDropdownItem>Something else here</a></li>
+            <li><a [disabled]="true" [routerLink]="[]" cDropdownItem>Disabled</a></li>
+          </ul>
+        </c-dropdown>
+      </ng-template>
+      <ng-template cTemplateId="widgetChartTemplate">
+        <c-chart [data]="data[3]" [options]="options[3]" class="mt-3 mx-3" height="70" type="bar" />
+      </ng-template>
+    </c-widget-stat-a>
+  </c-col>
+</c-row>
